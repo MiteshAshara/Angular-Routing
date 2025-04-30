@@ -1,0 +1,78 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper bg-white">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Suppliers</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Suppliers</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="container-fluid p-3">
+        <!-- Supplier Form -->
+        <form>
+            <div class="form-group">
+                <label for="supplierName">Supplier Name</label>
+                <input type="text" class="form-control" id="supplierName" placeholder="Enter supplier name">
+            </div>
+            <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input type="text" class="form-control" id="contactNumber" placeholder="Enter contact number">
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter city">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" rows="2" placeholder="Enter address"></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark">Add Supplier</button>
+        </form>
+
+        <!-- Supplier Table -->
+        <hr>
+        <h3>Supplier List</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Supplier Name</th>
+                    <th>Contact Number</th>
+                    <th>City</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alpha Traders</td>
+                    <td>9876543210</td>
+                    <td>New York</td>
+                    <td>123 Main Street</td>
+                </tr>
+                <tr>
+                    <td>Global Supply Co.</td>
+                    <td>9123456789</td>
+                    <td>Los Angeles</td>
+                    <td>456 Sunset Blvd</td>
+                </tr>
+                <tr>
+                    <td>Eco Goods Ltd.</td>
+                    <td>9001234567</td>
+                    <td>Chicago</td>
+                    <td>789 Greenway Ave</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

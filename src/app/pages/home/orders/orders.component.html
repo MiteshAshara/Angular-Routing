@@ -1,0 +1,86 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper bg-white">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Orders</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Orders</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="container-fluid p-3">
+        <!-- Order Form -->
+        <form>
+            <div class="form-group">
+                <label for="orderId">Order ID</label>
+                <input type="text" class="form-control" id="orderId" placeholder="Enter Order ID">
+            </div>
+            <div class="form-group">
+                <label for="customer">Customer Name</label>
+                <input type="text" class="form-control" id="customer" placeholder="Enter Customer Name">
+            </div>
+            <div class="form-group">
+                <label for="product">Product</label>
+                <input type="text" class="form-control" id="product" placeholder="Enter Product">
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity">
+            </div>
+            <div class="form-group">
+                <label for="date">Order Date</label>
+                <input type="date" class="form-control" id="date">
+            </div>
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+
+        <!-- Order Table -->
+        <hr>
+        <h3>Order List</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ORD001</td>
+                    <td>John Doe</td>
+                    <td>Laptop</td>
+                    <td>2</td>
+                    <td>2025-04-30</td>
+                </tr>
+                <tr>
+                    <td>ORD002</td>
+                    <td>Jane Smith</td>
+                    <td>Smartphone</td>
+                    <td>5</td>
+                    <td>2025-04-29</td>
+                </tr>
+                <tr>
+                    <td>ORD003</td>
+                    <td>Michael Brown</td>
+                    <td>Tablet</td>
+                    <td>1</td>
+                    <td>2025-04-28</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
