@@ -18,69 +18,61 @@
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
-    <div class="container-fluid p-3">
+    <!-- Form and Table Section -->
+    <div class="container-fluid">
         <!-- Order Form -->
-        <form>
+        <form (ngSubmit)="saveOrder()" class="mb-4">
             <div class="form-group">
-                <label for="orderId">Order ID</label>
-                <input type="text" class="form-control" id="orderId" placeholder="Enter Order ID">
-            </div>
-            <div class="form-group">
-                <label for="customer">Customer Name</label>
-                <input type="text" class="form-control" id="customer" placeholder="Enter Customer Name">
-            </div>
-            <div class="form-group">
-                <label for="product">Product</label>
-                <input type="text" class="form-control" id="product" placeholder="Enter Product">
+                <label for="productName">Product Name</label>
+                <input type="text" class="form-control" id="productName" placeholder="Enter product name" [(ngModel)]="newOrder.productName" name="productName" required>
             </div>
             <div class="form-group">
                 <label for="quantity">Quantity</label>
-                <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity">
+                <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" [(ngModel)]="newOrder.quantity" name="quantity" required>
             </div>
             <div class="form-group">
-                <label for="date">Order Date</label>
-                <input type="date" class="form-control" id="date">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" placeholder="Enter price" [(ngModel)]="newOrder.price" name="price" required>
             </div>
-            <button type="submit" class="btn btn-dark">Submit</button>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-dark w-100 rounded-pill">{{isEditMode ? 'Update' : 'Submit'}}</button>
+                <button *ngIf="isEditMode" type="button" class="btn btn-secondary ml-2 w-100 rounded-pill" (click)="resetForm()">Cancel</button>
+            </div>
         </form>
-
-        <!-- Order Table -->
-        <hr>
-        <h3>Order List</h3>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Customer</th>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>ORD001</td>
-                    <td>John Doe</td>
-                    <td>Laptop</td>
-                    <td>2</td>
-                    <td>2025-04-30</td>
-                </tr>
-                <tr>
-                    <td>ORD002</td>
-                    <td>Jane Smith</td>
-                    <td>Smartphone</td>
-                    <td>5</td>
-                    <td>2025-04-29</td>
-                </tr>
-                <tr>
-                    <td>ORD003</td>
-                    <td>Michael Brown</td>
-                    <td>Tablet</td>
-                    <td>1</td>
-                    <td>2025-04-28</td>
-                </tr>
-            </tbody>
-        </table>
+        
+        @if(orders$ | async; as orders) {
+            <h3>Order Records</h3>
+            @if(orders.length > 0) {
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover text-center" style="font-weight: bold;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(order of orders; track $index) {
+                                <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ order.productName }}</td>
+                                    <td>{{ order.quantity }}</td>
+                                    <td>₹ {{ order.price  }}</td>
+                                    <td>
+                                        <button class="btn btn-primary mr-1" (click)="editOrder(order)">Edit</button>
+                                        <button class="btn btn-danger" (click)="confirmDelete(order.id)">Delete</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            } @else {
+                <p>No data found.</p>
+            }
+        }
     </div>
 </div>
